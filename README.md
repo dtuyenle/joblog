@@ -61,3 +61,15 @@ var joblog = require("joblog");
 joblog.info("processed %i/%i", i + 1, total);
 joblog.warn("final sum %i", sum);
 ```
+
+### Python
+
+```
+import joblog
+import logging
+
+logging.info("%i/%i (%.1f%%) processed", i + 1, total, 100.0 * (i + 1) / total)
+logging.warn("all done")
+```
+
+Compatible with Python 2 and 3.
