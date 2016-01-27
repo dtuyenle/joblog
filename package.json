@@ -1,0 +1,27 @@
+{
+  "name": "joblog",
+  "version": "1.0.0",
+  "description": "Standardized logging for batch jobs and others.",
+  "main": "joblog.js",
+  "dependencies": {
+    "sprintf-js": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesbursa/joblog.git"
+  },
+  "keywords": [
+    "logs",
+    "logging"
+  ],
+  "author": "James Bursa <james@zamez.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesbursa/joblog/issues"
+  },
+  "homepage": "https://github.com/jamesbursa/joblog#readme"
+}
