@@ -53,7 +53,7 @@ I0127 160235.346 [22M] exit example: pid 6232, real 0.059s, user 0.00s, system 0
 ### Javascript (Node)
 
 ```
-npm install jamesbursa/joblog
+npm install joblog
 ```
 
 ```
@@ -63,6 +63,10 @@ joblog.warn("final sum %i", sum);
 ```
 
 ### Python
+
+```
+pip3 install git+https://github.com/jamesbursa/joblog
+```
 
 ```
 import joblog
