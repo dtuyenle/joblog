@@ -9,6 +9,7 @@ import logging
 import os
 import os.path
 import platform
+import pwd
 import resource
 import sys
 import time
@@ -82,9 +83,9 @@ if hasattr(time, "monotonic"):
 start_time = time_fn()
 program_name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
 setup_logging()
-logging.info("start %s: %s %s %s, hostname %s, user %s", program_name,
+logging.info("start %s: %s %s %s, hostname %s, user %i(%s)", program_name,
         platform.python_implementation(), platform.python_version(), platform.system(),
-        platform.node(), os.environ["USER"])
+        platform.node(), os.getuid(), pwd.getpwuid(os.getuid()).pw_name)
 logging.info("invoked as: %s\n", " ".join(sys.argv))
 
 atexit.register(exit_handler)
