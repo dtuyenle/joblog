@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name="joblog",
-    version="1.0.0",
+    version="1.0.1",
     description="Standardized logging for batch jobs and others.",
     long_description=open("README.md").read(),
     author="James Bursa",
