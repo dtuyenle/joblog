@@ -46,6 +46,7 @@ def setup_logging():
     logging.getLogger().addHandler(fh)
     logging.getLogger().setLevel(logging.DEBUG)
     logging.info("logging to %s", name)
+    return name
 
 def read_io_stats():
     io_stats = {}
@@ -82,7 +83,7 @@ if hasattr(time, "monotonic"):
     time_fn = time.monotonic  # Python 3.3+
 start_time = time_fn()
 program_name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
-setup_logging()
+logfile_name = setup_logging()
 logging.info("start %s: %s %s %s, hostname %s, user %i(%s)", program_name,
         platform.python_implementation(), platform.python_version(), platform.system(),
         platform.node(), os.getuid(), pwd.getpwuid(os.getuid()).pw_name)
