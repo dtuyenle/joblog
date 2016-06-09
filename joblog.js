@@ -27,6 +27,9 @@ function open_log() {
       directory, year, month, day, hour, minute, second,
       program_name, process.pid, os.hostname());
   var log = fs.createWriteStream(name);
+  log.on('error', function (err) {
+    warn("error %s", err);
+  });
   info("logging to %s", name);
   return log;
 }
