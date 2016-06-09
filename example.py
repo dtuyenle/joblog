@@ -15,3 +15,8 @@ for i in range(0, total):
         logging.info("%i/%i (%.1f%%) processed", i + 1, total, 100.0 * (i + 1) / total)
 
 logging.warn("all done")
+
+try:
+    x = 5 / 0
+except Exception:
+    logging.exception("intentional exception")

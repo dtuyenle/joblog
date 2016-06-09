@@ -21,8 +21,15 @@ class JoblogFormatter(logging.Formatter):
         msecs = int(record.created * 1000) % 1000
         ru = resource.getrusage(resource.RUSAGE_SELF)
         rss = format_size(ru.ru_maxrss * 1024)
-        message = record.msg % record.args
-        return "%s%s.%03i [%s] %s" % (record.levelname[0], datetime, msecs, rss, message)
+        prefix = "%s%s.%03i [%s] " % (record.levelname[0], datetime, msecs, rss)
+        message = [prefix + (record.msg % record.args)]
+        if record.exc_info:
+            if not record.exc_text:
+                record.exc_text = self.formatException(record.exc_info)
+        if record.exc_text:
+            for line in record.exc_text.split("\n"):
+                message.append(prefix + "... " + line)
+        return "\n".join(message)
 
 def setup_logging():
     now = time.gmtime()
